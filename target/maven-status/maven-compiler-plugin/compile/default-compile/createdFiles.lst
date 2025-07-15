@@ -1,0 +1,5 @@
+com\qst\medical\config\WebConfig.class
+com\qst\medical\config\JacksonConfig.class
+com\qst\medical\MedicalApplication.class
+com\qst\medical\config\SwaggerConfig.class
+com\qst\medical\config\WebConfig$1.class
