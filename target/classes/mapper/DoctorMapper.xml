@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qst.medical.mapper.DoctorMapper">
-    <resultMap id="getAllDoctorMap" type="com.qst.medical.model.DoctorModel">
+<mapper namespace="com.company.medical.mapper.DoctorMapper">
+    <resultMap id="getAllDoctorMap" type="com.company.medical.model.DoctorModel">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="age" column="age"/>
@@ -33,11 +33,11 @@
         order by id
     </select>
     <!--查询所有的医师级别-->
-    <select id="getAllLevel" resultType="com.qst.medical.model.DoctorLevelModel">
+    <select id="getAllLevel" resultType="com.company.medical.model.DoctorLevelModel">
         select id,name from `doctor_level`
     </select>
     <!--查询所有的诊治类型-->
-    <select id="getAllTreatType" resultType="com.qst.medical.model.TreatTypeModel">
+    <select id="getAllTreatType" resultType="com.company.medical.model.TreatTypeModel">
         select id,name from `treat_type`
     </select>
     <!--添加医师信息-->

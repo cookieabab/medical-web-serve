@@ -3,16 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.qst.medical.mapper.DrugMapper">
+<mapper namespace="com.company.medical.mapper.DrugMapper">
     <!--多对多嵌套查询，查询药品时，查询药品对应id的所有药店，此方法可以使用pagehelper，但影响性能-->
-    <resultMap id="getAllDrugs" type="com.qst.medical.model.DrugModel">
+    <resultMap id="getAllDrugs" type="com.company.medical.model.DrugModel">
         <id property="drugId" column="drug_id"/>
         <result property="drugName" column="drug_name"/>
         <result property="drugInfo" column="drug_info"/>
         <result property="drugEffect" column="drug_effect"/>
         <result property="drugImg" column="drug_img"/>
         <result property="drugPublisher" column="publisher"/>
-        <collection property="drugSales" ofType="com.qst.medical.model.SaleModel"
+        <collection property="drugSales" ofType="com.company.medical.model.SaleModel"
                     select="getWithSale" column="drug_id">
             <id property="saleId" column="sale_id"/>
             <result property="saleName" column="sale_name"/>
@@ -31,13 +31,13 @@
     </select>
 
     <!--药品子查询，查询药品id对应的所有药店-->
-    <select id="getWithSale" resultType="com.qst.medical.model.SaleModel">
+    <select id="getWithSale" resultType="com.company.medical.model.SaleModel">
         select s.sale_id,s.sale_name from sale s
          left join drug_sale ds on s.sale_id=ds.sale_id where ds.drug_id=#{drugId}
     </select>
 
     <!--新增药品信息-->
-    <insert id="saveDrug" parameterType="com.qst.medical.param.DrugParam" keyProperty="drugId" useGeneratedKeys="true">
+    <insert id="saveDrug" parameterType="com.company.medical.param.DrugParam" keyProperty="drugId" useGeneratedKeys="true">
         insert into drug(drug_name,drug_info,drug_effect,drug_img,createtime,updatetime,publisher)
         values(#{drugName},#{drugInfo},#{drugEffect},#{drugImg},#{createtime},#{updatetime},#{drugPublisher})
     </insert>

@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qst.medical.mapper.MaterialMapper">
+<mapper namespace="com.company.medical.mapper.MaterialMapper">
     <!--查询所有的必备材料-->
-    <select id="getAllMaterial" resultType="com.qst.medical.model.MaterialModel">
+    <select id="getAllMaterial" resultType="com.company.medical.model.MaterialModel">
         SELECT id,title,message FROM `material`
         <where>
             <trim prefixOverrides="OR">

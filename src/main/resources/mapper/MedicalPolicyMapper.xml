@@ -2,15 +2,15 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qst.medical.mapper.MedicalPolicyMapper">
+<mapper namespace="com.company.medical.mapper.MedicalPolicyMapper">
 
-    <resultMap id="getAllPolicyMap" type="com.qst.medical.model.MedicalPolicyModel">
+    <resultMap id="getAllPolicyMap" type="com.company.medical.model.MedicalPolicyModel">
         <id property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="message" column="message"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
-        <association property="cityModel" javaType="com.qst.medical.model.CityModel">
+        <association property="cityModel" javaType="com.company.medical.model.CityModel">
             <id property="cityId" column="city_id"/>
             <result property="city" column="name"/>
         </association>

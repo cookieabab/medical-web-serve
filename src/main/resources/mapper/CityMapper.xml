@@ -3,9 +3,9 @@
                 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.qst.medical.mapper.CityMapper">
+<mapper namespace="com.company.medical.mapper.CityMapper">
 
-    <resultMap id="AllCityMap" type="com.qst.medical.model.CityModel">
+    <resultMap id="AllCityMap" type="com.company.medical.model.CityModel">
         <id property="cityId" column="city_id"/>
         <result property="cityNumber" column="city_number"/>
         <result property="province" column="pname"/>
@@ -25,12 +25,12 @@
             </where>
         </if>
     </select><!--根据id查找一个城市信息-->
-    <select id="getCityById" resultType="com.qst.medical.domain.City">
+    <select id="getCityById" resultType="com.company.medical.domain.City">
         select * from city where city_id=#{id} limit 1
     </select>
 
     <!--添加一个城市信息-->
-    <insert id="saveCity" parameterType="com.qst.medical.entity.CityEntity">
+    <insert id="saveCity" parameterType="com.company.medical.entity.CityEntity">
         <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="total">
             select COUNT(*) from city
         </selectKey>
